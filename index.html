@@ -8,342 +8,303 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Pretendard',-apple-system,sans-serif;background:#fff;color:#1a1a1a;font-size:14px;line-height:1.8;-webkit-font-smoothing:antialiased}
-
-/* Print A4 */
 @page{size:A4;margin:20mm 18mm}
 @media print{.page{box-shadow:none!important;margin:0!important;page-break-after:always}.page:last-child{page-break-after:auto}}
-
 .page{max-width:794px;margin:24px auto;padding:48px 52px;background:#fff;box-shadow:0 2px 20px rgba(0,0,0,.08);min-height:1123px;position:relative}
 .conf{position:absolute;top:20px;right:24px;font-size:9px;font-weight:700;letter-spacing:3px;color:#ccc}
 
 /* Cover */
 .cover{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;min-height:1020px;padding:80px 52px}
 .cover-lb{font-size:10px;font-weight:700;letter-spacing:5px;color:#999;margin-bottom:16px}
-.cover-t{font-size:36px;font-weight:900;letter-spacing:-2px;line-height:1.15;color:#0B1D3A;margin-bottom:8px}
+.cover-t{font-size:36px;font-weight:900;letter-spacing:-2px;line-height:1.15;color:#1a1a1a;margin-bottom:8px}
 .cover-st{font-size:16px;font-weight:300;color:#777;line-height:1.6;margin-bottom:32px}
-.cover-dv{width:40px;height:3px;background:#0B1D3A;margin-bottom:32px}
-.cover-info{font-size:12px;color:#999;line-height:2}
-.cover-info strong{color:#555;font-weight:600}
+.cover-dv{width:40px;height:3px;background:#1a1a1a;margin-bottom:32px}
+.cover-info{font-size:12px;color:#999;line-height:2}.cover-info strong{color:#555;font-weight:600}
 
 /* Section */
 .sn{font-size:32px;font-weight:200;color:#ccc;margin-bottom:2px;letter-spacing:-1px}
-.sh{font-size:18px;font-weight:800;color:#0B1D3A;margin-bottom:16px;letter-spacing:-0.3px}
+.sh{font-size:18px;font-weight:800;color:#1a1a1a;margin-bottom:16px;letter-spacing:-.3px}
 .sb{font-size:14px;color:#1a1a1a;line-height:1.85;margin-bottom:16px}
 .sb strong{font-weight:700}
 
-/* Highlight box */
-.hb{background:#f5f7fa;border-left:3px solid #0B1D3A;padding:16px 20px;margin:16px 0;font-size:13.5px;line-height:1.8}
+/* Highlight */
+.hb{background:#f5f7fa;border-left:3px solid #1a1a1a;padding:16px 20px;margin:16px 0;font-size:13.5px;line-height:1.8}
 .hb strong{font-weight:700}
 
-/* Table */
-.tb{width:100%;border-collapse:collapse;margin:16px 0;font-size:13px}
-.tb th{background:#f0f0f0;font-weight:700;padding:10px 14px;text-align:left;border-bottom:1px solid #ddd}
-.tb td{padding:9px 14px;border-bottom:1px solid #eee;vertical-align:top}
-.tb .em{font-weight:700;color:#0B1D3A}
+/* Table — no wrap */
+.tb{width:100%;border-collapse:collapse;margin:16px 0;font-size:12.5px}
+.tb th{background:#f0f0f0;font-weight:700;padding:9px 12px;text-align:left;border-bottom:1px solid #ddd;white-space:nowrap}
+.tb td{padding:8px 12px;border-bottom:1px solid #eee;vertical-align:top;white-space:nowrap}
+.tb .em{font-weight:700;color:#1a1a1a}
+.tb .wr{white-space:normal}
 
-/* Structure card */
-.sc{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
-.sc3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0}
-.cd{background:#f5f7fa;padding:20px;border-radius:0}
-.cd--d{background:#0B1D3A;color:#fff}
-.cd__t{font-size:14px;font-weight:800;margin-bottom:6px}.cd--d .cd__t{color:#fff}
-.cd__b{font-size:12.5px;line-height:1.75;color:#555}.cd--d .cd__b{color:rgba(255,255,255,.55)}
+/* Row cards — single row, black on white */
+.rc{display:flex;gap:0;margin:16px 0;border:1px solid #e0e0e0}
+.rc__i{flex:1;padding:18px 20px;border-right:1px solid #e0e0e0}
+.rc__i:last-child{border-right:none}
+.rc__t{font-size:13px;font-weight:800;color:#1a1a1a;margin-bottom:4px}
+.rc__b{font-size:12px;color:#555;line-height:1.7}
 
-/* List */
-.ol{margin:12px 0 16px 20px;font-size:13.5px;line-height:2}
-.ol li{margin-bottom:4px}
-.ul{margin:8px 0 16px 18px;font-size:13.5px;line-height:2;list-style:disc}
-.ul li{margin-bottom:2px}
+/* Dark row cards */
+.rd{display:flex;gap:0;margin:16px 0;background:#1a1a1a;color:#fff}
+.rd__i{flex:1;padding:18px 20px;border-right:1px solid rgba(255,255,255,.1)}
+.rd__i:last-child{border-right:none}
+.rd__t{font-size:13px;font-weight:800;margin-bottom:4px}
+.rd__b{font-size:12px;color:rgba(255,255,255,.55);line-height:1.7}
+
+/* Simple card */
+.cd{background:#f5f7fa;padding:20px;margin-bottom:12px}
+.cd__t{font-size:14px;font-weight:800;color:#1a1a1a;margin-bottom:6px}
+.cd__b{font-size:13px;color:#555;line-height:1.75}
+
+/* Grid */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
 
 /* Divider */
 .dv{width:100%;height:1px;background:#eee;margin:24px 0}
 
-/* Flow */
-.fl{display:flex;align-items:center;gap:0;margin:16px 0;flex-wrap:wrap}
-.fl__s{background:#0B1D3A;color:#fff;padding:12px 16px;font-weight:700;font-size:12px;text-align:center}
-.fl__a{font-size:20px;color:#ccc;padding:0 8px}
+/* Flow — single row */
+.fl{display:flex;align-items:stretch;margin:16px 0;border:1px solid #e0e0e0}
+.fl__s{flex:1;padding:14px 16px;border-right:1px solid #e0e0e0;font-size:12px;text-align:center;display:flex;flex-direction:column;justify-content:center}
+.fl__s:last-child{border-right:none}
+.fl__t{font-weight:800;font-size:13px;color:#1a1a1a}
+.fl__b{font-size:11px;color:#777;margin-top:2px}
+.fl__a{display:flex;align-items:center;padding:0 4px;font-size:16px;color:#ccc}
 
-/* Number highlight */
-.nh{display:inline-block;font-size:28px;font-weight:900;color:#0B1D3A;letter-spacing:-1px;margin-right:4px}
+/* Number */
+.nh{font-size:24px;font-weight:900;color:#1a1a1a;letter-spacing:-1px}
 </style>
 </head>
 <body>
 
-<!-- ===== 표지 ===== -->
+<!-- 표지 -->
 <div class="page" style="padding:0">
 <div class="conf">CONFIDENTIAL</div>
 <div class="cover">
   <div class="cover-lb">BUSINESS PLAN</div>
   <div class="cover-t">AX Partners<br>재구조화 기획서</div>
-  <div class="cover-st">아파트 AI 전담 개발 / 로보틱스 / 페이 시스템<br>통합 운영 법인으로의 전환</div>
+  <div class="cover-st">아파트아이 전담 개발 / 로보틱스 / 페이<br>통합 운영 법인으로의 전환</div>
   <div class="cover-dv"></div>
   <div class="cover-info">
     <strong>작성일</strong> 2026. 04. 13<br>
     <strong>작성자</strong> 성현우 국장<br>
-    <strong>대상</strong> 내부 검토용<br>
     <strong>분류</strong> 대외비
   </div>
 </div>
 </div>
 
-<!-- ===== 1. 배경 및 현황 ===== -->
+<!-- 1. 왜 재구조화인가 -->
 <div class="page">
 <div class="conf">CONFIDENTIAL</div>
 
 <div class="sn">01</div>
-<div class="sh">배경 및 현황</div>
+<div class="sh">왜 재구조화인가</div>
 
-<div class="sb">AX Partners는 현재 법인이 존재하나 실질적인 사업 운영이 활발하지 않은 상태입니다. 계열사가 유령회사화되는 것은 법적/세무적으로 리스크를 수반하며, 동시에 여러 SPC를 신설하여 자금을 분산하는 것도 비효율적입니다.</div>
+<div class="sb">선태민 대표가 로보틱스 사업을 함께 추진하고자 합니다. 이를 위해 별도 SPC를 신설하는 방안이 있으나, 아래의 이유로 <strong>기존 AX Partners를 재구조화하여 통합 운영</strong>하는 것이 합리적입니다.</div>
 
-<div class="hb">
-  <strong>핵심 문제</strong><br>
-  - 신규 SPC 설립 시 관리 대상이 과도하게 증가<br>
-  - AX Partners에 이미 대표님 자본금 <strong>5,000만원</strong> 투입 완료<br>
-  - 보험 SPC에도 양측 각 <strong>5,000만원</strong> 추가 출자 예정<br>
-  - 자금을 계속 분산하는 것은 비효율적<br>
-  - 기존 법인을 활용하면 즉시 운영 가능
+<div class="rc">
+  <div class="rc__i"><div class="rc__t">관리 부담</div><div class="rc__b">신규 SPC 설립 시 관리 대상 법인이 계속 증가. 각 법인별 회계/세무/인력 관리 부담.</div></div>
+  <div class="rc__i"><div class="rc__t">자금 분산</div><div class="rc__b">AX Partners에 5,000만원, 보험 SPC에 양측 각 5,000만원. 추가 SPC마다 자금이 분산되는 것은 비효율적.</div></div>
+  <div class="rc__i"><div class="rc__t">유령회사 리스크</div><div class="rc__b">계열사가 유령회사화되면 세무/법적 리스크. 실질 매출이 발생하는 운영 법인이어야 함.</div></div>
+  <div class="rc__i"><div class="rc__t">즉시 시작</div><div class="rc__b">이미 설립된 법인이므로 사업목적 추가만으로 즉시 운영 가능. 법인 설립 비용/시간 절감.</div></div>
 </div>
 
-<div class="sb">따라서 <strong>신규 SPC를 만드는 대신, 기존 AX Partners를 재구조화</strong>하여 아파트 AI 전담 개발, 로보틱스, 페이 시스템을 통합하는 운영 법인으로 전환하는 것이 합리적입니다.</div>
+<div class="hb"><strong>결론:</strong> 신규 SPC를 만들지 않고, 기존 AX Partners의 사업목적을 확장하여 아파트아이 전담 개발 + 로보틱스 + 페이를 통합 운영합니다.</div>
 
 <div class="dv"></div>
 
 <div class="sn">02</div>
-<div class="sh">선태민 대표 협력 구조</div>
+<div class="sh">선태민 대표 지분 참여</div>
 
-<div class="sb">선태민 대표는 로보틱스 사업을 함께 추진하고자 합니다. 이를 위해 별도 법인을 신설하는 것이 아니라, <strong>AX Partners의 지분 일부를 선태민 대표에게 매각</strong>하는 방식을 제안합니다.</div>
+<div class="sb">별도 법인을 신설하는 대신, <strong>AX Partners 지분 일부를 선태민 대표에게 매각</strong>합니다. AX Partners는 이미 대표님이 5,000만원을 출자하여 설립한 법인이며, 사업 영역이 구체화된 상태이므로 초기 투자 대비 프리미엄 적용이 가능합니다.</div>
 
 <table class="tb">
-  <tr><th>항목</th><th>내용</th></tr>
-  <tr><td class="em">기존 투자금</td><td>대표님 자본금 5,000만원 투입 완료</td></tr>
-  <tr><td class="em">지분 매각 대상</td><td>선태민 대표</td></tr>
-  <tr><td class="em">매각 논리</td><td>이미 법인 설립/운영 이력이 있으므로, 초기 투자 대비 높은 가치로 매각 가능</td></tr>
-  <tr><td class="em">매각 효과</td><td>- 대표님 기존 투입 자금 일부 회수 (또는 고평가 회수)<br>- 선태민 대표의 자본 참여로 운영 자금 확보<br>- 별도 SPC 신설 불필요</td></tr>
+  <tr><th>항목</th><th>내용</th><th>비고</th></tr>
+  <tr><td class="em">기존 출자</td><td>대표님 5,000만원</td><td>법인 설립 시 투입</td></tr>
+  <tr><td class="em">매각 대상</td><td>선태민 대표</td><td>로보틱스 사업 주도자</td></tr>
+  <tr><td class="em">매각 논리</td><td>설립/운영 이력 + 사업 영역 구체화</td><td>초기 투자 대비 고평가 적용</td></tr>
+  <tr><td class="em">매각 효과</td><td>대표님 투자금 보호(또는 일부 회수)</td><td>선태민 자본으로 운영 자금 확보</td></tr>
 </table>
 
-<div class="hb">
-  <strong>지분 매각 방향</strong><br>
-  기존에 투입한 5,000만원 대비 높은 기업가치를 산정하여, 선태민 대표에게 일부 지분을 매각합니다. 이미 만들어진 회사이고, 사업 영역(아파트 AI/로보틱스/페이)이 구체화된 상태이므로 <strong>초기 투자 대비 프리미엄 적용이 가능</strong>합니다.
-</div>
+<div class="sb" style="margin-top:16px"><strong>선태민 대표에게 요청할 사항:</strong></div>
 
-<div class="sb"><strong>선태민 대표에게 요청할 사항:</strong></div>
-<ol class="ol">
-  <li><strong>사무실 수배</strong> — 서울 또는 여의도 근교에 적합한 사무 공간 확보</li>
-  <li><strong>초기 개발비 부담</strong> — 로보틱스 및 관공서 대상 무인 발급기/AI 화면 개발의 초기 비용은 선태민 대표 측에서 출자</li>
-  <li><strong>지분 매입 자금</strong> — 위 지분 매각 대금</li>
-</ol>
+<div class="rc">
+  <div class="rc__i"><div class="rc__t">지분 매입 자금</div><div class="rc__b">고평가 기준 매입 대금 출자</div></div>
+  <div class="rc__i"><div class="rc__t">사무실 수배</div><div class="rc__b">서울 또는 여의도 근교 사무 공간 확보</div></div>
+  <div class="rc__i"><div class="rc__t">초기 개발비</div><div class="rc__b">로보틱스/관공서 무인 발급기 개발 비용 부담</div></div>
+</div>
 
 </div>
 
-<!-- ===== 2. 사업 영역 ===== -->
+<!-- 2. 사업 영역 -->
 <div class="page">
 <div class="conf">CONFIDENTIAL</div>
 
 <div class="sn">03</div>
-<div class="sh">AX Partners 사업 영역 (3축)</div>
+<div class="sh">사업 영역: 3축 통합</div>
 
-<div class="sb">AX Partners는 아래 3개 사업축을 통합 운영합니다. 각 축은 독립적으로 매출을 발생시키면서도, 페이 시스템을 통해 자금 흐름이 연결됩니다.</div>
+<div class="sb">AX Partners는 아래 3개 사업축을 통합 운영합니다. 각 축은 독립적으로 매출을 발생시키면서, 페이 시스템을 통해 자금 흐름이 연결됩니다.</div>
 
-<div class="sc3">
-  <div class="cd cd--d">
-    <div class="cd__t">아파트 AI</div>
-    <div class="cd__b">아파트 집사/집변 전담 개발<br>하자접수 자동화<br>감정서 분석<br>입대의 커뮤니티<br>보험 청구 자동화</div>
-  </div>
-  <div class="cd cd--d">
-    <div class="cd__t">로보틱스</div>
-    <div class="cd__b">관공서 대상 무인 발급기<br>AI 화면 인터페이스<br>선태민 대표 주도<br>초기 개발비 선태민 측 부담</div>
-  </div>
-  <div class="cd cd--d">
-    <div class="cd__t">페이 시스템</div>
-    <div class="cd__b">보험금 지급 정산<br>집변 서비스 결제<br>아파트 관리비 연동<br>SPC 투자금 재투자 통로</div>
-  </div>
+<div class="rd">
+  <div class="rd__i"><div class="rd__t">아파트아이 전담 개발</div><div class="rd__b">아파트아이(아파트 집사/집변) 기술 개발 전담. 하자접수 자동화, 감정서 분석, 입대의 커뮤니티, 보험 청구 자동화. ERP 개발 포함.</div></div>
+  <div class="rd__i"><div class="rd__t">로보틱스</div><div class="rd__b">선태민 대표 주도. 관공서 대상 무인 발급기, AI 화면 인터페이스. 초기 개발비 선태민 측 부담.</div></div>
+  <div class="rd__i"><div class="rd__t">페이 시스템</div><div class="rd__b">보험금 지급, 집변 결제, 아파트 관리비 연동, SPC 투자금 재투자 통로. 전 사업의 결제 인프라.</div></div>
 </div>
 
 <div class="dv"></div>
-
-<div class="sh">페이 시스템이 필요한 이유</div>
-
-<div class="sb">페이는 단순 결제 수단이 아니라, <strong>AX Partners 전체 사업의 자금 흐름을 통합하는 인프라</strong>입니다.</div>
-
-<table class="tb">
-  <tr><th>활용 영역</th><th>페이 시스템 역할</th></tr>
-  <tr><td class="em">보험금 정산</td><td>보험 SPC에서 발생하는 보험금을 페이를 통해 입주민/관리사무소에 지급</td></tr>
-  <tr><td class="em">집변 서비스</td><td>집합건물 변호사 자문료, 하자소송 착수금 등을 페이로 결제</td></tr>
-  <tr><td class="em">SPC 재투자</td><td>보험 SPC에서 받은 투자금을 AX Partners(페이)에 재투자 가능 — 양측 배분과는 별개로 법인 자체 투자금으로 활용</td></tr>
-  <tr><td class="em">아파트 관리비</td><td>관리비 결제/정산을 페이로 전환 시 단지별 락인 효과</td></tr>
-</table>
-
-<div class="hb">
-  <strong>핵심:</strong> 보험 SPC의 투자금은 배분 대상이 아닌, AX Partners 법인 자체에 대한 투자금으로 재투자할 수 있습니다. 이는 양측 이익 배분과 별개의 구조이므로, 법인의 성장 자금을 확보하면서도 배분 구조를 훼손하지 않습니다.
-</div>
-
-</div>
-
-<!-- ===== 3. 운영 구조 ===== -->
-<div class="page">
-<div class="conf">CONFIDENTIAL</div>
 
 <div class="sn">04</div>
-<div class="sh">운영 구조 및 인력</div>
+<div class="sh">페이 시스템 상세</div>
 
-<div class="sc">
-  <div class="cd">
-    <div class="cd__t">정민석 사장</div>
-    <div class="cd__b">
-      직함: <strong>사장</strong> (대표이사 아님)<br>
-      배경: 은행 출신<br><br>
-      <strong>역할:</strong><br>
-      - 대면 업무 (금융기관/관공서/단지)<br>
-      - 일상적 법인 관리<br>
-      - 페이 관련 금융기관 대응<br>
-      - 관리사무소/입대의 영업<br><br>
-      <strong>보상 구조:</strong><br>
-      - 임금 + 용역비 혼합 형태<br>
-      - 정 사장 관리 단지(~900세대) 수임 시,<br>&nbsp;&nbsp;해당 수임에서 인건비 일부 충당
-    </div>
-  </div>
-  <div class="cd">
-    <div class="cd__t">선태민 대표 (지분 참여)</div>
-    <div class="cd__b">
-      역할: <strong>로보틱스 사업 주도</strong><br><br>
-      <strong>담당:</strong><br>
-      - 관공서 대상 무인 발급기 사업<br>
-      - AI 화면 인터페이스 개발<br>
-      - 사무실 수배 (서울/여의도 근교)<br>
-      - 초기 개발비 출자<br><br>
-      <strong>지분 참여:</strong><br>
-      - AX Partners 지분 일부 매입<br>
-      - 기존 투자 대비 프리미엄 적용<br>
-      - 매입 대금은 법인 운영 자금으로 활용
-    </div>
-  </div>
-</div>
+<div class="sb">페이는 단순 결제 수단이 아니라, <strong>AX Partners 전체 사업의 자금 흐름을 통합하는 핵심 인프라</strong>입니다. 보험금, 집변 서비스, 관리비 등 모든 지출이 이 페이를 통해 이루어지도록 설계합니다.</div>
 
-<div class="dv"></div>
-
-<div class="sh">정민석 사장 인건비 구조</div>
-
-<div class="sb">정민석 사장의 인건비는 고정 급여를 최소화하고, 실적 연동 용역비를 주축으로 설계합니다.</div>
+<div class="sh" style="font-size:15px;margin-bottom:12px">4-1. 페이가 처리하는 결제 유형</div>
 
 <table class="tb">
-  <tr><th>구분</th><th>내용</th><th>비고</th></tr>
-  <tr><td class="em">기본 임금</td><td>최소한의 4대보험 기준 급여</td><td>법인 유지 명목</td></tr>
-  <tr><td class="em">용역비</td><td>수임/영업 성과에 따른 용역 수수료</td><td>실적 연동</td></tr>
-  <tr><td class="em">단지 수임 연동</td><td>정 사장 관리 단지(~900세대) 수임 시<br>해당 건에서 인건비 일부 차감</td><td>자체 충당</td></tr>
+  <tr><th>결제 유형</th><th>발생 시점</th><th>지급 주체</th><th>수취 주체</th><th>페이의 역할</th></tr>
+  <tr><td class="em">보험금 지급</td><td>하자 보험 청구 승인 시</td><td>보험사/SPC</td><td>입주민/관리사무소</td><td>정산 + 입금 자동화</td></tr>
+  <tr><td class="em">집변 자문료</td><td>법률 자문 완료 시</td><td>입주민/입대의</td><td>황해(변호사)</td><td>착수금/성공보수 결제</td></tr>
+  <tr><td class="em">하자소송 착수금</td><td>소송 수임 계약 시</td><td>입대의/입주민</td><td>황해</td><td>분할납부 처리</td></tr>
+  <tr><td class="em">관리비 결제</td><td>매월 정기</td><td>입주민</td><td>관리사무소</td><td>자동이체/정산</td></tr>
+  <tr><td class="em">배상금 배분</td><td>판결 확정 후</td><td>황해</td><td>개별 입주민</td><td>세대별 자동 배분</td></tr>
+  <tr><td class="em">용역비 정산</td><td>개발 용역 완료 시</td><td>황해/관리사무소</td><td>AX Partners</td><td>자동 정산</td></tr>
 </table>
 
-<div class="hb">
-  <strong>운영비 절감 원칙:</strong> 유령회사가 되어서는 안 되지만, 운영 유지비가 과도해서도 안 됩니다. 최소 인력/최소 고정비로 실질 운영이 가능한 구조를 목표로 합니다.
+<div class="sh" style="font-size:15px;margin-top:20px;margin-bottom:12px">4-2. 페이를 통한 투자금 재투자 구조</div>
+
+<div class="sb">보험 SPC에서 발생하는 투자금은 양측(대표님/황해)의 이익 배분 대상입니다. 그러나 <strong>배분과 별개로, SPC 자체가 AX Partners 법인에 투자하는 것은 가능</strong>합니다. 이 투자금은 페이 시스템 구축/운영에 재투자됩니다.</div>
+
+<div class="fl">
+  <div class="fl__s"><div class="fl__t">보험 SPC</div><div class="fl__b">투자금 집행</div></div>
+  <div class="fl__a">&rarr;</div>
+  <div class="fl__s"><div class="fl__t">AX Partners</div><div class="fl__b">법인 투자 (배분 아님)</div></div>
+  <div class="fl__a">&rarr;</div>
+  <div class="fl__s"><div class="fl__t">페이 시스템</div><div class="fl__b">구축/운영비</div></div>
+  <div class="fl__a">&rarr;</div>
+  <div class="fl__s"><div class="fl__t">보험금/집변/관리비</div><div class="fl__b">결제 처리</div></div>
+  <div class="fl__a">&rarr;</div>
+  <div class="fl__s"><div class="fl__t">수수료 수익</div><div class="fl__b">AX Partners 매출</div></div>
 </div>
+
+<div class="hb"><strong>핵심:</strong> 양측 이익 배분(보험 SPC 수익)과, AX Partners 법인 자체에 대한 투자는 별개입니다. 페이 시스템은 이 구분을 가능하게 하는 구조적 장치이며, 동시에 실질 매출(수수료)을 발생시켜 유령회사 리스크를 제거합니다.</div>
+
+<div class="sh" style="font-size:15px;margin-top:20px;margin-bottom:12px">4-3. 페이 수익 모델</div>
+
+<table class="tb">
+  <tr><th>수익원</th><th>과금 방식</th><th>예상 규모</th></tr>
+  <tr><td class="em">결제 수수료</td><td>건당 0.5~1.5%</td><td class="wr">보험금/착수금/관리비 결제 시 수수료</td></tr>
+  <tr><td class="em">정산 수수료</td><td>건당 정액 또는 정률</td><td class="wr">배상금 세대별 배분, 보험금 정산 시</td></tr>
+  <tr><td class="em">구독료 (B2B)</td><td>월 정액</td><td class="wr">관리사무소/입대의 페이 시스템 이용료</td></tr>
+  <tr><td class="em">데이터 부가서비스</td><td>별도 계약</td><td class="wr">관리비 분석, 하자 통계, 보험 분석 등</td></tr>
+</table>
 
 </div>
 
-<!-- ===== 4. 자금 흐름 ===== -->
+<!-- 3. 운영 구조 -->
 <div class="page">
 <div class="conf">CONFIDENTIAL</div>
 
 <div class="sn">05</div>
-<div class="sh">자금 흐름 및 투자 구조</div>
+<div class="sh">운영 구조</div>
 
-<div class="fl">
-  <div class="fl__s">보험 SPC<br>투자금</div><div class="fl__a">&rarr;</div>
-  <div class="fl__s">AX Partners<br>(법인 투자)</div><div class="fl__a">&rarr;</div>
-  <div class="fl__s">페이 시스템<br>구축/운영</div><div class="fl__a">&rarr;</div>
-  <div class="fl__s">보험금/집변/관리비<br>결제 처리</div>
-</div>
+<div class="sb">AX Partners의 운영은 <strong>최소 고정비</strong>를 원칙으로 합니다. 유령회사가 되어서는 안 되지만, 고정 지출이 과도해서도 안 됩니다.</div>
 
-<div class="fl">
-  <div class="fl__s">선태민 대표<br>지분 매입금</div><div class="fl__a">&rarr;</div>
-  <div class="fl__s">AX Partners<br>운영 자금</div><div class="fl__a">&rarr;</div>
-  <div class="fl__s">로보틱스<br>초기 개발</div><div class="fl__a">+</div>
-  <div class="fl__s">사무실<br>운영비</div>
-</div>
-
-<div class="dv"></div>
-
-<div class="sh">기존 투자 현황 vs 재구조화 후</div>
+<div class="sh" style="font-size:15px;margin-bottom:12px">5-1. 정민석 사장</div>
 
 <table class="tb">
-  <tr><th>항목</th><th>기존 (분산 구조)</th><th>재구조화 후 (통합)</th></tr>
-  <tr><td class="em">법인 수</td><td>AX Partners + 보험 SPC + 로보틱스 SPC(신설)</td><td><strong>AX Partners 1개로 통합</strong></td></tr>
-  <tr><td class="em">AX Partners 투자</td><td>5,000만원 (대표님)</td><td>5,000만원 + 선태민 매입금</td></tr>
-  <tr><td class="em">보험 SPC</td><td>양측 각 5,000만원 별도 출자</td><td>동일 (단, 투자금 일부 AX Partners 재투자 가능)</td></tr>
-  <tr><td class="em">로보틱스</td><td>별도 SPC 신설 필요</td><td>AX Partners 내 사업부</td></tr>
-  <tr><td class="em">관리 부담</td><td>3개 법인 관리</td><td><strong>1개 법인 관리</strong></td></tr>
-  <tr><td class="em">자금 효율</td><td>각 법인에 분산 출자</td><td>통합 운영 + 페이를 통한 자금 순환</td></tr>
+  <tr><th>항목</th><th>내용</th></tr>
+  <tr><td class="em">직함</td><td>사장 (대표이사 아님)</td></tr>
+  <tr><td class="em">배경</td><td>은행 출신 — 금융기관/결제 인프라 대응에 적합</td></tr>
+  <tr><td class="em">역할</td><td>대면 업무(금융기관/관공서/단지), 법인 일상 관리, 페이 관련 금융기관 대응</td></tr>
 </table>
+
+<div class="sh" style="font-size:15px;margin-top:20px;margin-bottom:12px">5-2. 정민석 사장 보상 구조</div>
+
+<div class="sb">고정 급여를 최소화하고, 기존에 발생하고 있는 개발 용역비와 수수료로 보상합니다.</div>
+
+<table class="tb">
+  <tr><th>보상 유형</th><th>원천</th><th>내용</th></tr>
+  <tr><td class="em">기본 임금</td><td>AX Partners</td><td>4대보험 기준 최소 급여 (법인 유지 명목)</td></tr>
+  <tr><td class="em">개발 용역비</td><td>아파트아이/ERP 개발</td><td class="wr">현재 ERP 개발, 아파트아이 기술 개발 등으로 이미 용역비가 발생 중. 이 용역을 AX Partners 명의로 처리하면 정 사장 보상 재원 확보.</td></tr>
+  <tr><td class="em">입대의 수수료</td><td>정 사장 관리 단지</td><td class="wr">정 사장이 현재 입대의로 활동 중인 단지(~900세대). 해당 단지에서 하자소송 등 수임 발생 시, 입대의 역할에 대한 수수료를 지급. 영업 수수료가 아닌, 입대의 직무 수행에 대한 보상.</td></tr>
+</table>
+
+<div class="hb"><strong>정리:</strong> 정민석 사장의 인건비는 신규 비용이 아닙니다. 기존에 발생하고 있는 아파트아이/ERP 개발 용역비를 AX Partners를 통해 처리하고, 입대의 역할 수수료를 더하면 별도의 대규모 고정비 없이 보상이 가능합니다.</div>
 
 <div class="dv"></div>
 
 <div class="sn">06</div>
-<div class="sh">운영 원칙</div>
+<div class="sh">기존 구조 vs 재구조화 비교</div>
 
-<div class="sc">
-  <div class="cd">
-    <div class="cd__t">유령회사 방지</div>
-    <div class="cd__b">계열사가 유령회사화되면 세무/법적 리스크 발생. 실질적 매출과 거래가 발생하는 운영 법인이어야 합니다. 페이 거래, 로보틱스 용역, AI 개발 용역 등으로 실질 매출을 확보합니다.</div>
-  </div>
-  <div class="cd">
-    <div class="cd__t">최소 고정비 운영</div>
-    <div class="cd__b">운영되어야 하지만, 고정비가 과도해서는 안 됩니다. 정민석 사장의 인건비는 용역/수임 연동으로 변동비화하고, 사무실은 선태민 측에서 수배합니다.</div>
-  </div>
-</div>
-
-<div class="sc">
-  <div class="cd">
-    <div class="cd__t">자금 분배 vs 법인 투자 분리</div>
-    <div class="cd__b">보험 SPC 등에서 발생하는 이익 배분(양측 몫)과, 법인 자체에 대한 투자금은 별개입니다. 페이를 통해 법인에 재투자하는 자금은 배분 대상이 아닌 성장 자금입니다.</div>
-  </div>
-  <div class="cd">
-    <div class="cd__t">지분 매각 시 고평가 적용</div>
-    <div class="cd__b">이미 설립/운영 이력이 있는 법인이므로, 초기 투자(5,000만원) 대비 프리미엄을 적용하여 선태민 대표에게 매각합니다. 대표님의 기존 투자를 보호합니다.</div>
-  </div>
-</div>
+<table class="tb">
+  <tr><th>항목</th><th>기존 (분산)</th><th>재구조화 (통합)</th></tr>
+  <tr><td class="em">법인 수</td><td>AX Partners + 보험 SPC + 로보틱스 SPC(신설)</td><td>AX Partners 1개 + 보험 SPC</td></tr>
+  <tr><td class="em">AX Partners 자금</td><td>5,000만원 (대표님 단독)</td><td>5,000만원 + 선태민 매입금</td></tr>
+  <tr><td class="em">로보틱스</td><td>별도 SPC 필요</td><td>AX Partners 내 사업부</td></tr>
+  <tr><td class="em">페이</td><td>별도 구축 주체 미정</td><td>AX Partners가 운영 주체</td></tr>
+  <tr><td class="em">관리 부담</td><td>3개 법인</td><td>2개 법인</td></tr>
+  <tr><td class="em">자금 효율</td><td>각 법인에 분산 출자</td><td>통합 + 페이를 통한 자금 순환</td></tr>
+  <tr><td class="em">유령회사 리스크</td><td>AX Partners 유휴 상태</td><td>페이/용역/수임으로 실매출 발생</td></tr>
+</table>
 
 </div>
 
-<!-- ===== 5. 실행 계획 ===== -->
+<!-- 4. 자금 흐름 & 운영 원칙 -->
 <div class="page">
 <div class="conf">CONFIDENTIAL</div>
 
 <div class="sn">07</div>
-<div class="sh">실행 계획</div>
+<div class="sh">자금 흐름 전체도</div>
 
-<table class="tb">
-  <tr><th style="width:40px">순서</th><th style="width:180px">과업</th><th>담당</th><th>내용</th></tr>
-  <tr><td class="em">1</td><td class="em">선태민 대표 협의</td><td>성현우 국장</td><td>지분 매각 조건 / 초기 개발비 부담 / 사무실 수배 요청</td></tr>
-  <tr><td class="em">2</td><td class="em">지분 구조 확정</td><td>성현우 국장 / 선태민</td><td>매각 지분 비율 및 매각가 산정, 주주간 계약서 작성</td></tr>
-  <tr><td class="em">3</td><td class="em">사무실 확보</td><td>선태민 대표</td><td>서울 또는 여의도 근교 사무 공간 수배</td></tr>
-  <tr><td class="em">4</td><td class="em">정민석 사장 선임</td><td>성현우 국장</td><td>사장 직함으로 선임, 임금+용역 보상 구조 확정</td></tr>
-  <tr><td class="em">5</td><td class="em">사업자 변경 등록</td><td>정민석 사장</td><td>사업 목적 추가 (로보틱스/페이/AI 개발), 대표 변경 불필요(사장직)</td></tr>
-  <tr><td class="em">6</td><td class="em">아파트 AI 개발 착수</td><td>개발팀</td><td>아파트 집사/집변 전담 개발, 보험 청구 자동화</td></tr>
-  <tr><td class="em">7</td><td class="em">로보틱스 개발 착수</td><td>선태민 대표</td><td>관공서 무인 발급기 AI 화면, 초기 개발비 선태민 측 부담</td></tr>
-  <tr><td class="em">8</td><td class="em">페이 시스템 설계</td><td>정민석 사장 / 개발팀</td><td>결제 인프라 설계, 금융기관 대응 (정 사장 은행 경력 활용)</td></tr>
-  <tr><td class="em">9</td><td class="em">첫 수임 (정 사장 단지)</td><td>정민석 사장</td><td>~900세대 단지 수임, 인건비 일부 충당 구조 실행</td></tr>
-</table>
+<div class="sb">AX Partners를 중심으로, 보험 SPC/황해/단지로부터 자금이 유입되고, 페이를 통해 최종 수취자에게 지급됩니다.</div>
+
+<div class="sh" style="font-size:14px;margin-bottom:10px">유입</div>
+<div class="rc">
+  <div class="rc__i"><div class="rc__t">선태민 지분 매입금</div><div class="rc__b">고평가 기준 매각 대금. 법인 운영/개발 자금.</div></div>
+  <div class="rc__i"><div class="rc__t">보험 SPC 투자금</div><div class="rc__b">배분과 별개의 법인 투자. 페이 구축비.</div></div>
+  <div class="rc__i"><div class="rc__t">개발 용역비</div><div class="rc__b">아파트아이/ERP 개발 대가. 기존 발생 중.</div></div>
+  <div class="rc__i"><div class="rc__t">페이 수수료</div><div class="rc__b">결제/정산/구독 수수료. 실질 매출.</div></div>
+</div>
+
+<div class="sh" style="font-size:14px;margin-top:20px;margin-bottom:10px">지출</div>
+<div class="rc">
+  <div class="rc__i"><div class="rc__t">정민석 사장 보상</div><div class="rc__b">최소 임금 + 용역비. 입대의 수수료.</div></div>
+  <div class="rc__i"><div class="rc__t">로보틱스 개발</div><div class="rc__b">초기 비용 선태민 측. 이후 법인 부담.</div></div>
+  <div class="rc__i"><div class="rc__t">페이 시스템 운영</div><div class="rc__b">서버/인프라/결제 수수료.</div></div>
+  <div class="rc__i"><div class="rc__t">사무실 운영</div><div class="rc__b">선태민 수배. 최소 규모.</div></div>
+</div>
 
 <div class="dv"></div>
 
 <div class="sn">08</div>
-<div class="sh">기대 효과</div>
+<div class="sh">운영 원칙</div>
 
-<div class="sc3">
-  <div class="cd cd--d">
-    <div class="cd__t">법인 관리 효율화</div>
-    <div class="cd__b">신규 SPC 없이 기존 법인 1개로<br>아파트 AI + 로보틱스 + 페이<br>3개 사업축 통합 운영</div>
+<div class="rc">
+  <div class="rc__i">
+    <div class="rc__t">유령회사 방지</div>
+    <div class="rc__b">실질 매출(페이 수수료, 개발 용역비, 로보틱스 매출)이 발생하는 법인이어야 함. 매출 없는 법인은 세무/법적 리스크.</div>
   </div>
-  <div class="cd cd--d">
-    <div class="cd__t">기존 투자 가치 보전</div>
-    <div class="cd__b">대표님 투입 5,000만원 대비<br>프리미엄 적용하여 지분 매각<br>기존 투자금 보호 + 일부 회수</div>
+  <div class="rc__i">
+    <div class="rc__t">최소 고정비</div>
+    <div class="rc__b">정민석 사장 보상은 기존 용역비 활용. 사무실은 선태민 수배. 신규 대규모 고정 지출 없음.</div>
   </div>
-  <div class="cd cd--d">
-    <div class="cd__t">실질 운영 법인화</div>
-    <div class="cd__b">유령회사 리스크 제거<br>페이/용역/수임으로 실매출<br>최소 고정비 운영 구조</div>
+  <div class="rc__i">
+    <div class="rc__t">배분과 투자의 분리</div>
+    <div class="rc__b">보험 SPC 이익 배분(양측 몫)과 AX Partners 법인 투자는 별개 구조. 성장 자금 확보와 배분 구조 보호를 동시에.</div>
+  </div>
+  <div class="rc__i">
+    <div class="rc__t">기존 투자 보호</div>
+    <div class="rc__b">대표님 5,000만원 투입 대비 프리미엄 적용. 선태민 매각을 통해 투자 가치 보전.</div>
   </div>
 </div>
 
+<div class="dv"></div>
+
 <div class="hb">
-  <strong>요약:</strong> AX Partners를 아파트 AI 전담 개발 + 로보틱스 + 페이 시스템의 3축 통합 운영 법인으로 재구조화합니다. 선태민 대표에게 지분 일부를 고평가 매각하여 운영 자금을 확보하고, 정민석 사장을 선임하여 최소 고정비로 실질 운영합니다. 보험 SPC 투자금의 재투자 통로로 페이 시스템을 활용하며, 이는 양측 배분과 별개의 법인 성장 자금입니다.
+  <strong>요약</strong><br><br>
+  AX Partners를 아파트아이 전담 개발 + 로보틱스 + 페이의 3축 통합 법인으로 재구조화합니다.<br><br>
+  선태민 대표에게 지분 일부를 고평가 매각하여 운영 자금을 확보합니다. 정민석 사장을 선임하되, 보상은 기존 아파트아이/ERP 개발 용역비와 입대의 수수료로 구성하여 신규 고정비를 최소화합니다.<br><br>
+  페이 시스템은 보험금/집변/관리비/배상금 등 전체 결제 인프라로 기능하며, 보험 SPC 투자금의 재투자 통로이자 실질 매출(수수료)을 발생시키는 핵심 사업입니다. 이를 통해 유령회사 리스크를 제거하면서도, 양측 이익 배분 구조를 훼손하지 않습니다.
 </div>
 
 </div>
