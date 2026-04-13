@@ -34,23 +34,22 @@ body{font-family:'Pretendard',-apple-system,sans-serif;background:#fff;color:#1a
 /* Table — no wrap */
 .tb{width:100%;border-collapse:collapse;margin:16px 0;font-size:12.5px}
 .tb th{background:#f0f0f0;font-weight:700;padding:9px 12px;text-align:left;border-bottom:1px solid #ddd;white-space:nowrap}
-.tb td{padding:8px 12px;border-bottom:1px solid #eee;vertical-align:top;white-space:nowrap}
-.tb .em{font-weight:700;color:#1a1a1a}
-.tb .wr{white-space:normal}
+.tb td{padding:9px 12px;border-bottom:1px solid #eee;vertical-align:top}
+.tb .em{font-weight:700;color:#1a1a1a;white-space:nowrap}
 
 /* Row cards — single row, black on white */
 .rc{display:flex;gap:0;margin:16px 0;border:1px solid #e0e0e0}
-.rc__i{flex:1;padding:18px 20px;border-right:1px solid #e0e0e0}
+.rc__i{flex:1;padding:20px 22px;border-right:1px solid #e0e0e0;min-width:0}
 .rc__i:last-child{border-right:none}
-.rc__t{font-size:13px;font-weight:800;color:#1a1a1a;margin-bottom:4px}
-.rc__b{font-size:12px;color:#555;line-height:1.7}
+.rc__t{font-size:13px;font-weight:800;color:#1a1a1a;margin-bottom:6px}
+.rc__b{font-size:12px;color:#555;line-height:1.75}
 
 /* Dark row cards */
 .rd{display:flex;gap:0;margin:16px 0;background:#1a1a1a;color:#fff}
-.rd__i{flex:1;padding:18px 20px;border-right:1px solid rgba(255,255,255,.1)}
+.rd__i{flex:1;padding:22px 24px;border-right:1px solid rgba(255,255,255,.1);min-width:0}
 .rd__i:last-child{border-right:none}
-.rd__t{font-size:13px;font-weight:800;margin-bottom:4px}
-.rd__b{font-size:12px;color:rgba(255,255,255,.55);line-height:1.7}
+.rd__t{font-size:13px;font-weight:800;margin-bottom:6px}
+.rd__b{font-size:12px;color:rgba(255,255,255,.55);line-height:1.75}
 
 /* Simple card */
 .cd{background:#f5f7fa;padding:20px;margin-bottom:12px}
@@ -65,11 +64,11 @@ body{font-family:'Pretendard',-apple-system,sans-serif;background:#fff;color:#1a
 
 /* Flow — single row */
 .fl{display:flex;align-items:stretch;margin:16px 0;border:1px solid #e0e0e0}
-.fl__s{flex:1;padding:14px 16px;border-right:1px solid #e0e0e0;font-size:12px;text-align:center;display:flex;flex-direction:column;justify-content:center}
+.fl__s{flex:1;padding:16px 14px;border-right:1px solid #e0e0e0;font-size:12px;text-align:center;display:flex;flex-direction:column;justify-content:center;min-width:0}
 .fl__s:last-child{border-right:none}
-.fl__t{font-weight:800;font-size:13px;color:#1a1a1a}
-.fl__b{font-size:11px;color:#777;margin-top:2px}
-.fl__a{display:flex;align-items:center;padding:0 4px;font-size:16px;color:#ccc}
+.fl__t{font-weight:800;font-size:12px;color:#1a1a1a;word-break:keep-all}
+.fl__b{font-size:10.5px;color:#777;margin-top:3px;word-break:keep-all}
+.fl__a{display:flex;align-items:center;padding:0 2px;font-size:14px;color:#ccc;flex-shrink:0}
 
 /* Number */
 .nh{font-size:24px;font-weight:900;color:#1a1a1a;letter-spacing:-1px}
@@ -181,9 +180,9 @@ body{font-family:'Pretendard',-apple-system,sans-serif;background:#fff;color:#1a
   <div class="fl__a">&rarr;</div>
   <div class="fl__s"><div class="fl__t">페이 시스템</div><div class="fl__b">구축/운영비</div></div>
   <div class="fl__a">&rarr;</div>
-  <div class="fl__s"><div class="fl__t">보험금/집변/관리비</div><div class="fl__b">결제 처리</div></div>
+  <div class="fl__s"><div class="fl__t">결제 처리</div><div class="fl__b">보험금/집변/관리비</div></div>
   <div class="fl__a">&rarr;</div>
-  <div class="fl__s"><div class="fl__t">수수료 수익</div><div class="fl__b">AX Partners 매출</div></div>
+  <div class="fl__s"><div class="fl__t">수수료 매출</div><div class="fl__b">AX Partners</div></div>
 </div>
 
 <div class="hb"><strong>핵심:</strong> 양측 이익 배분(보험 SPC 수익)과, AX Partners 법인 자체에 대한 투자는 별개입니다. 페이 시스템은 이 구분을 가능하게 하는 구조적 장치이며, 동시에 실질 매출(수수료)을 발생시켜 유령회사 리스크를 제거합니다.</div>
@@ -192,10 +191,10 @@ body{font-family:'Pretendard',-apple-system,sans-serif;background:#fff;color:#1a
 
 <table class="tb">
   <tr><th>수익원</th><th>과금 방식</th><th>예상 규모</th></tr>
-  <tr><td class="em">결제 수수료</td><td>건당 0.5~1.5%</td><td class="wr">보험금/착수금/관리비 결제 시 수수료</td></tr>
-  <tr><td class="em">정산 수수료</td><td>건당 정액 또는 정률</td><td class="wr">배상금 세대별 배분, 보험금 정산 시</td></tr>
-  <tr><td class="em">구독료 (B2B)</td><td>월 정액</td><td class="wr">관리사무소/입대의 페이 시스템 이용료</td></tr>
-  <tr><td class="em">데이터 부가서비스</td><td>별도 계약</td><td class="wr">관리비 분석, 하자 통계, 보험 분석 등</td></tr>
+  <tr><td class="em">결제 수수료</td><td>건당 0.5~1.5%</td><td>보험금/착수금/관리비 결제 시</td></tr>
+  <tr><td class="em">정산 수수료</td><td>건당 정액/정률</td><td>배상금 배분, 보험금 정산</td></tr>
+  <tr><td class="em">구독료 (B2B)</td><td>월 정액</td><td>관리사무소/입대의 이용료</td></tr>
+  <tr><td class="em">데이터 부가서비스</td><td>별도 계약</td><td>관리비/하자/보험 분석</td></tr>
 </table>
 
 </div>
@@ -225,11 +224,11 @@ body{font-family:'Pretendard',-apple-system,sans-serif;background:#fff;color:#1a
 <table class="tb">
   <tr><th>보상 유형</th><th>원천</th><th>내용</th></tr>
   <tr><td class="em">기본 임금</td><td>AX Partners</td><td>4대보험 기준 최소 급여 (법인 유지 명목)</td></tr>
-  <tr><td class="em">개발 용역비</td><td>아파트아이/ERP 개발</td><td class="wr">현재 ERP 개발, 아파트아이 기술 개발 등으로 이미 용역비가 발생 중. 이 용역을 AX Partners 명의로 처리하면 정 사장 보상 재원 확보.</td></tr>
-  <tr><td class="em">입대의 수수료</td><td>정 사장 관리 단지</td><td class="wr">정 사장이 현재 입대의로 활동 중인 단지(~900세대). 해당 단지에서 하자소송 등 수임 발생 시, 입대의 역할에 대한 수수료를 지급. 영업 수수료가 아닌, 입대의 직무 수행에 대한 보상.</td></tr>
+  <tr><td class="em">개발 용역비</td><td>아파트아이/ERP 개발</td><td>현재 발생 중인 용역비를 AX Partners 명의로 처리</td></tr>
+  <tr><td class="em">입대의 수수료</td><td>정 사장 관리 단지</td><td>입대의 활동 중인 단지(~900세대) 수임 시 직무 수수료</td></tr>
 </table>
 
-<div class="hb"><strong>정리:</strong> 정민석 사장의 인건비는 신규 비용이 아닙니다. 기존에 발생하고 있는 아파트아이/ERP 개발 용역비를 AX Partners를 통해 처리하고, 입대의 역할 수수료를 더하면 별도의 대규모 고정비 없이 보상이 가능합니다.</div>
+<div class="hb"><strong>정리:</strong> 정민석 사장의 인건비는 신규 비용이 아닙니다. 기존에 발생하고 있는 아파트아이/ERP 개발 용역비를 AX Partners를 통해 처리하고, 입대의 역할 수수료를 더하면 별도의 대규모 고정비 없이 보상이 가능합니다.<br><br><strong>개발 용역비:</strong> 현재 ERP 개발, 아파트아이 기술 개발 등으로 이미 용역비가 발생하고 있습니다. 이 용역을 AX Partners 명의로 처리하면 정 사장 보상 재원이 확보됩니다.<br><br><strong>입대의 수수료:</strong> 정 사장이 현재 입대의로 활동 중인 단지(~900세대)에서 하자소송 등 수임이 발생하면, 입대의 역할에 대한 수수료를 지급합니다. 영업 수수료가 아닌, 입대의 직무 수행에 대한 보상입니다.</div>
 
 <div class="dv"></div>
 
